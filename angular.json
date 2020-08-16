@@ -33,6 +33,8 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "./node_modules/normalize.css/normalize.css",
+              "src/reset.css",
               "src/styles.scss"
             ],
             "scripts": []
