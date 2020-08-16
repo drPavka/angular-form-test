@@ -1,8 +1,9 @@
 import {Component, OnInit, ChangeDetectionStrategy, OnDestroy} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Observable, of, Subject, Subscription} from 'rxjs';
+import {from, Observable, of, Subject, Subscription} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, map, startWith, switchMap} from 'rxjs/operators';
 import {EventsService} from '../events.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'mouse-add-event',
@@ -19,7 +20,10 @@ export class AddEventComponent implements OnInit, OnDestroy {
   public addressPreview$: Observable<string> | undefined;
   public datePreview$: Observable<string> | undefined;
 
-  constructor(private events: EventsService) {
+  constructor(
+    private events: EventsService,
+    private router: Router
+  ) {
   }
 
   ngOnInit(): void {
@@ -30,7 +34,11 @@ export class AddEventComponent implements OnInit, OnDestroy {
       this.add$$.asObservable().pipe(
         filter(() => this.form.valid),
         map(() => this.form.value),
-        switchMap(this.events.add$.bind(this.events))
+        switchMap(this.events.add$.bind(this.events)),
+        filter(result => !!result),
+        switchMap(() => {
+          return from(this.router.navigate(['/']));
+        })
       ).subscribe()
     );
     const previewPipe = (source: Observable<string>): Observable<string> => {

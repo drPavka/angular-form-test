@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
-import {tap} from 'rxjs/operators';
+import {tap, withLatestFrom} from 'rxjs/operators';
 
 export interface Event {
   name: string;
@@ -17,7 +17,10 @@ export class EventsService {
 
   constructor() {
     this.created$$.asObservable().pipe(
-
+      withLatestFrom(this.list$$.asObservable()),
+      tap(([newEvent, events]) => {
+        events.push(newEvent);
+      }),
     ).subscribe();
   }
 

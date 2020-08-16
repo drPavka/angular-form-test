@@ -1,5 +1,5 @@
-<h1 class="mat-display-4">Home</h1>
-<div fxLayout="row wrap" fxLayoutGap="12px" *ngIf="(events$ | async) as events">
+<h1 class="mat-display-4">Events list</h1>
+<div fxLayout="row wrap" fxLayoutGap="12px" *ngIf="(events$ | async) as events" fxLayoutAlign="start stretch">
   <mat-card *ngFor="let event of events ">
     <mat-card-title>{{event.name}}</mat-card-title>
     <mat-card-content fxLayout="row" fxLayoutAlign="space-between">
@@ -7,5 +7,11 @@
       <span>{{event.date}}</span>
     </mat-card-content>
   </mat-card>
+  <mat-card>
+    <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+      <mat-icon>add</mat-icon>
+      <a routerLink="/add-event">Add event</a>
+    </mat-card-content>
+  </mat-card>
 </div>
-<a routerLink="/add-event">Add event</a>
+
