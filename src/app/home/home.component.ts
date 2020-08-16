@@ -1,4 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
+import {Observable} from 'rxjs';
+import {EventsService, Event} from '../events.service';
 
 @Component({
   selector: 'mouse-home',
@@ -8,9 +10,14 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private events: EventsService) {
+  }
 
   ngOnInit(): void {
+  }
+
+  get events$(): Observable<Event[]> {
+    return this.events.list$$.asObservable();
   }
 
 }

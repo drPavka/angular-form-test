@@ -1,1 +1,39 @@
-<p>add-event works!</p>
+<h1 class="mat-display-4" fxLayout="row" fxLayoutAlign="start center">
+  <button mat-icon-button routerLink="/">
+    <mat-icon>keyboard_backspace</mat-icon>
+  </button>
+  <span>Add event</span>
+</h1>
+
+<section fxLayout="row" fxLayoutGap="54px">
+  <form [formGroup]="form" fxFlex="50%" >
+    <mat-form-field>
+      <mat-label>Event name</mat-label>
+      <input type="text" matInput formControlName="name" required>
+      <mat-error *ngIf="form.controls.name.hasError('required')">Event name is required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Address</mat-label>
+      <input type="text" matInput formControlName="address" required>
+      <mat-error *ngIf="form.controls.address.hasError('required')">Event address is required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Date</mat-label>
+      <input type="text" matInput formControlName="date" required>
+      <mat-error *ngIf="form.controls.address.hasError('required')">Event date is required</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="add$$.next()">Add</button>
+  </form>
+  <div  fxFlex>
+    <h2>Preview</h2>
+    <mat-card class="mat-elevation-z3">
+      <img mat-card-image src="https://via.placeholder.com/150"/>
+      <mat-card-title>{{titlePreview$ | async}}</mat-card-title>
+      <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
+        <span>{{addressPreview$ | async}}</span>
+        <span>{{datePreview$ | async}}</span>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</section>

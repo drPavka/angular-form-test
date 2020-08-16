@@ -9,6 +9,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { HomeComponent } from './home/home.component';
 import { AddEventComponent } from './add-event/add-event.component';
 import { ErrorComponent } from './error/error.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -18,12 +26,19 @@ import { ErrorComponent } from './error/error.component';
     AddEventComponent,
     ErrorComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    FlexLayoutModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatCardModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
