@@ -5,7 +5,7 @@
     <mat-card-title>{{event.name}}</mat-card-title>
     <mat-card-content fxLayout="row" fxLayoutAlign="space-between">
       <span>{{event.address}}</span>
-      <span>{{event.date}}</span>
+      <span>{{event.date | date:'d LLL y'}}</span>
     </mat-card-content>
   </mat-card>
   <mat-card class="add-event">

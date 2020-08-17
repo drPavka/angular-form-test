@@ -7,7 +7,6 @@ import { NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { LayoutComponent } from './layout/layout.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HomeComponent } from './home/home.component';
-import { AddEventComponent } from './add-event/add-event.component';
 import { ErrorComponent } from './error/error.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -16,13 +15,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
     HomeComponent,
-    AddEventComponent,
     ErrorComponent
   ],
   imports: [
@@ -30,13 +29,7 @@ import {MatCardModule} from '@angular/material/card';
     AppRoutingModule,
     NoopAnimationsModule,
     MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    FlexLayoutModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatCardModule
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

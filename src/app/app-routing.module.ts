@@ -11,7 +11,7 @@ const routes: Routes = [{
   children: [
     {
       path: 'add-event',
-      component: AddEventComponent
+      loadChildren: () => import('./add-event/add-event.module').then(m => m.AddEventModule)
     },
     {
       path: '',
