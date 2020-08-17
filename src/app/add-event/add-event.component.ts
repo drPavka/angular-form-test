@@ -36,6 +36,7 @@ export class AddEventComponent implements OnInit, OnDestroy {
         map(() => this.form.value),
         switchMap(this.events.add$.bind(this.events)),
         filter(result => !!result),
+        tap(() => this.form.markAsPristine()),
         switchMap(() => {
           return from(this.router.navigate(['/']));
         })
