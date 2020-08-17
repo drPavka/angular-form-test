@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "start": "ng serve --port 4400",
-    "build": "ng build --base-href=/mouth-frontend --prod --output-path=docs",
+    "build": "ng build --base-href=/mouth-frontend/ --prod --output-path=docs",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
