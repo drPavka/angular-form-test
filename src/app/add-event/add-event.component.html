@@ -6,7 +6,7 @@
 </h1>
 
 <section fxLayout="row" fxLayoutGap="54px">
-  <form [formGroup]="form" fxFlex="50%" >
+  <form [formGroup]="form" fxFlex >
     <mat-form-field>
       <mat-label>Event name</mat-label>
       <input type="text" matInput formControlName="name" required>
@@ -24,10 +24,10 @@
     </mat-form-field>
     <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="add$$.next()">Add</button>
   </form>
-  <div  fxFlex>
+  <div  >
     <h2>Preview</h2>
     <mat-card class="mat-elevation-z3">
-      <img mat-card-image src="https://via.placeholder.com/150"/>
+      <img mat-card-image src="https://via.placeholder.com/300"/>
       <mat-card-title>{{titlePreview$ | async}}</mat-card-title>
       <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
         <span>{{addressPreview$ | async}}</span>

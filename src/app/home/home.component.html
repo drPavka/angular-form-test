@@ -1,16 +1,19 @@
 <h1 class="mat-display-4">Events list</h1>
-<div fxLayout="row wrap" fxLayoutGap="12px" *ngIf="(events$ | async) as events" fxLayoutAlign="start stretch">
+<div *ngIf="(events$ | async) as events" fxLayoutAlign="start stretch" fxLayout="row wrap" fxLayoutGap="12px">
   <mat-card *ngFor="let event of events ">
+    <img src="https://via.placeholder.com/300" mat-card-image>
     <mat-card-title>{{event.name}}</mat-card-title>
     <mat-card-content fxLayout="row" fxLayoutAlign="space-between">
       <span>{{event.address}}</span>
       <span>{{event.date}}</span>
     </mat-card-content>
   </mat-card>
-  <mat-card>
-    <mat-card-content fxLayout="column" fxLayoutAlign="center center">
-      <mat-icon>add</mat-icon>
-      <a routerLink="/add-event">Add event</a>
+  <mat-card class="add-event">
+    <mat-card-content fxLayout="row" fxLayoutAlign="center stretch" style="height:100%;">
+      <a routerLink="/add-event" fxLayout="column" fxLayoutAlign="center center" >
+        <mat-icon>add</mat-icon>
+        <span>Add event</span>
+      </a>
     </mat-card-content>
   </mat-card>
 </div>
