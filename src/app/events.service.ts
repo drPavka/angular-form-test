@@ -27,7 +27,6 @@ export class EventsService {
       tap(([newEvent, events]) => {
         events.push(newEvent);
         events.sort((a: Event, b: Event) => {
-          console.log(a, b);
           return a.date.getTime() - b.date.getTime();
         });
       }),

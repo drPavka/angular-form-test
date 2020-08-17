@@ -10,7 +10,6 @@ export class MockBackendInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     let result;
-    console.log(request.url, request.method);
     if (
       request.url.startsWith('/events/add') &&
       request.method === 'POST'
