@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 export interface Event {
   name: string;
   address: string;
-  date: string;
+  date: Date;
 }
 
 @Injectable({
@@ -26,6 +26,10 @@ export class EventsService {
       withLatestFrom(this.list$$.asObservable()),
       tap(([newEvent, events]) => {
         events.push(newEvent);
+        events.sort((a: Event, b: Event) => {
+          console.log(a, b);
+          return a.date.getTime() - b.date.getTime();
+        });
       }),
     ).subscribe();
   }

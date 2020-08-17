@@ -1,7 +1,7 @@
-import {Component, OnInit, ChangeDetectionStrategy, OnDestroy} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {from, Observable, of, Subject, Subscription} from 'rxjs';
-import {debounceTime, distinctUntilChanged, filter, map, startWith, switchMap, tap} from 'rxjs/operators';
+import {from, Observable, Subject, Subscription} from 'rxjs';
+import {debounceTime, distinctUntilChanged, filter, map, switchMap, tap} from 'rxjs/operators';
 import {EventsService} from '../events.service';
 import {Router} from '@angular/router';
 
@@ -57,7 +57,6 @@ export class AddEventComponent implements OnInit, OnDestroy {
       previewPipe
     );
     this.datePreview$ = this.form.get('date')?.valueChanges.pipe(
-      tap(console.log.bind(console, this.form.errors)),
       previewPipe
     );
   }

@@ -1,10 +1,5 @@
 import {Injectable} from '@angular/core';
-import {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor, HttpResponse
-} from '@angular/common/http';
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 
 @Injectable()
@@ -30,7 +25,7 @@ export class MockBackendInterceptor implements HttpInterceptor {
       request.method === 'GET') {
       result = of(new HttpResponse({
         status: 200, body: [
-          {name: 'Fake Event', address: 'Kyiv, Ukriane', date: Date.now()}
+          {name: 'Fake Event', address: 'Kyiv, Ukriane', date: new Date()}
         ]
       }));
     } else {
