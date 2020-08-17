@@ -19,10 +19,12 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Date</mat-label>
-      <input type="text" matInput formControlName="date" required [matDatepicker]="picker">
+      <input type="text" matInput formControlName="date" required [matDatepicker]="picker" [min]="minDate">
       <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
-      <mat-error *ngIf="form.controls.address.hasError('required')">Event date is required</mat-error>
+      <mat-error *ngIf="form.controls.date.hasError('required')">Event date is required</mat-error>
+      <mat-error *ngIf="form.controls.date.hasError('matDatepickerMin')">Provide future date for event</mat-error>
+
     </mat-form-field>
     <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="add$$.next()">Add</button>
   </form>
